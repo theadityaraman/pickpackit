@@ -20,4 +20,7 @@ def file_upload(request):
         return HttpResponse("File uploaded successfully")
 
     # Render the file upload form
+    return render(request, "upload.html")
+
+def home(request):
     return render(request, "index.html")

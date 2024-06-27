@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<form action="/home/upload" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <label for="file">
-        Select a file (.stl or .obj):
-    </label>
-    <input type="file" id="file" name="myfile" accept=".obj,.stl">
-    <br>
-    <input type="submit" value="Submit">
-</form>
-
-</body>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div>
+      <h1 className="">Upload. Optimize. Save.</h1>
+      <h2 className="">Upload. Optimize. Save.</h2>
+      <button className="start-button">Start <span>🚀</span></button>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/home/upload" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file">
+        Select a file (.stl or .obj):
+    </label>
+    <input type="file" id="file" name="myfile" accept=".obj,.stl">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
