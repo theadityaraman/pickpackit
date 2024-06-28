@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% if not optimized_results %}
 <div class = "upload">
-<h1 class="sid-text">Upload a 3D Model File (STL or OBJ)</h1>
+
+    <h1 class="sid-text">Upload a 3D Model File (STL or OBJ)</h1>
 <form action="/upload" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <label class="sid-text" for="file">Select a file (.stl or .obj):</label>
     <input class="start-button" type="file" id="file" name="myfile" accept=".obj,.stl" required>
     <br>
     <input class = "start-button" type="submit" value="Submit">
 </form>
+
 </div>
+{% endif %}
 
 {% if optimized_results %}
     <h2>Optimization Results</h2>
