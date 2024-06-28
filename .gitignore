@@ -4,8 +4,6 @@ test_tokens.txt
 
 .env
 db.sqlite3
-media/
-static/
 
 __pycache__
 *.pyc
