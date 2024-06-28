@@ -16,24 +16,27 @@
 {% endif %}
 
 {% if optimized_results %}
-    <h2>Optimization Results</h2>
-    <p><strong>Original Dimensions:</strong>
+<div class = "result">
+    <div>
+    <h2 class="heading-text">Optimization Results</h2>
+    <p class="sid-text"><strong>Original Dimensions:</strong>
         <ul>
-            <li>Length : {{ optimized_results.original_dimensions.length }}</li>
-            <li>Width: {{ optimized_results.original_dimensions.width }}</li>
-            <li>Height: {{ optimized_results.original_dimensions.height }}</li>
+            <li class="sid-text">Length : {{ optimized_results.original_dimensions.length }}</li>
+            <li class="sid-text">Width: {{ optimized_results.original_dimensions.width }}</li>
+            <li class="sid-text">Height: {{ optimized_results.original_dimensions.height }}</li>
         </ul>
     </p>
-    <p><strong>Original Volume:</strong> {{ optimized_results.original_volume }}</p>
-    <p><strong>Optimized Radius:</strong> {{ optimized_results.optimized_radius }}</p>
-    <p><strong>Optimized Height:</strong> {{ optimized_results.optimized_height }}</p>
-    <p><strong>Original Surface Area:</strong> {{ optimized_results.original_surface_area }}</p>
-    <p><strong>Optimized Surface Area:</strong> {{ optimized_results.optimized_surface_area }}</p>
+    <p class="sid-text"><strong>Original Volume:</strong> {{ optimized_results.original_volume }}</p>
+    <p class="sid-text"><strong>Optimized Radius:</strong> {{ optimized_results.optimized_radius }}</p>
+    <p class="sid-text"><strong>Optimized Height:</strong> {{ optimized_results.optimized_height }}</p>
+    <p class="sid-text"><strong>Original Surface Area:</strong> {{ optimized_results.original_surface_area }}</p>
+    <p class="sid-text"><strong>Optimized Surface Area:</strong> {{ optimized_results.optimized_surface_area }}</p>
 
     {% if file_path %}
-    <h3><a href="{% url 'download_file' file_path %}">Download Optimized File</a></h3>
+    <a class="start-button" href="{% url 'download_file' file_path %}">Download Optimized File</a>
     {% endif %}
-    
+</div>
+</div>
 {% endif %}
 
 {% endblock %}
