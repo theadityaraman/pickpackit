@@ -11,6 +11,12 @@
   <button class="start-button" onClick="directToUploadForm()">
     Start <span>🚀</span>
   </button>
+  <script>
+    function directToUploadForm() {
+      window.location.href = "/upload";
+    }
+  </script>
+
   <model-viewer
     alt=""
     class="orbit-cans"
@@ -45,6 +51,7 @@
     camera-controls
     touch-action="pan-y"
   ></model-viewer>
+
 </div>
 
 {% endblock %}

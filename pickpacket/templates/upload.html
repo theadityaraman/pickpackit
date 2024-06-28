@@ -28,6 +28,11 @@
     <p><strong>Optimized Height:</strong> {{ optimized_results.optimized_height }}</p>
     <p><strong>Original Surface Area:</strong> {{ optimized_results.original_surface_area }}</p>
     <p><strong>Optimized Surface Area:</strong> {{ optimized_results.optimized_surface_area }}</p>
+
+    {% if file_path %}
+    <h3><a href="{% url 'download_file' file_path %}">Download Optimized File</a></h3>
+    {% endif %}
+    
 {% endif %}
 
 </body>
