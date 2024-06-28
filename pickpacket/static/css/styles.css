@@ -90,3 +90,16 @@
   left: 300px;
   bottom: 20px;
 }
+
+.upload {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+  text-align: center;
+  background-image: url("../asset/uploadbg.png");
+}
