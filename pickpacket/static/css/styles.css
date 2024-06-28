@@ -2,120 +2,149 @@
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 500;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
-  color: whitesmoke;
+  color: #333;
+}
+body {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .main {
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #f5f5f5;
   text-align: center;
-  background-image: url("../asset/herobg.png");
 }
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
 .start-button {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #41403e;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: white;
   cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: 0.75rem;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
   text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-top: 2vh;
+  transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .start-button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
+  background-color: #0056b3;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 8px 16px;
 }
 
 .heading-text {
-  font-size: 6rem;
-  text-shadow: 2px 2px 4px #000000;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-weight: bold;
 }
 
-.sid-text {
-  margin-top: 2vh;
+#rotating-text {
+  color: #ffeb3b;
+  display: inline-block;
+}
+
+.description-list {
+  list-style-type: none;
   font-size: 1.2rem;
-  max-width: 120vh;
+  max-width: 600px;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  color: #eee;
+}
+
+.description-list li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  text-align: left;
+  position: relative;
+}
+
+.description-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffeb3b;
+  font-size: 1.5rem;
+  line-height: 1rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+model-viewer {
+  height: 200px;
+  width: 200px;
 }
 
 .orbit-cans {
   position: absolute;
   left: 20px;
-  bottom: 210px;
+  bottom: 150px;
 }
+
 .orbit-can {
   position: absolute;
   right: 20px;
-  bottom: 210px;
+  bottom: 150px;
 }
+
 .orbit-bag {
   position: absolute;
-  right: 300px;
+  right: 250px;
   bottom: 20px;
 }
+
 .orbit-bottle {
   position: absolute;
-  left: 300px;
+  left: 250px;
   bottom: 20px;
-}
-
-.upload {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #f5f5f5;
-  text-align: center;
-  background-image: url("../asset/uploadbg.png");
-}
-
-.result {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #f5f5f5;
-  background-image: url("../asset/uploadbg.png");
-}
-.heading-text {
-  font-size: 3rem;
-  text-shadow: 2px 2px 4px #000000;
 }

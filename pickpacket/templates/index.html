@@ -1,57 +1,80 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
 <div class="main">
-  <h1 class="heading-text">Upload. Optimize. Save.</h1>
-  <h2 class="sid-text">
-    Using calculus to optimize the design of cylindrical lip product containers.
-    Minimizing the surface area of lip product containers can lead to reduced
-    usage of materials in production, which not only cuts costs but also lessens
-    the environmental impact of the packaging.
-  </h2>
-  <button class="start-button" onClick="directToUploadForm()">
-    Start <span>🚀</span>
-  </button>
+  <div class="content-container">
+    <div class="title-container">
+      <h1 class="heading-text">
+        PickPackIt: <span id="rotating-text"></span>
+      </h1>
+    </div>
+    <ul class="description-list">
+      <li>Using calculus to optimize the design of cylindrical lip product containers. 📈</li>
+      <li>Minimizing the surface area of lip product containers can lead to reduced usage of materials in production. 📦</li>
+      <li>This not only cuts costs but also lessens the environmental impact of the packaging. 🌱</li>
+    </ul>
+    <button class="start-button" onClick="directToUploadForm()">
+      Start <span>🚀</span>
+    </button>
+  </div>
   <script>
     function directToUploadForm() {
       window.location.href = "/upload";
     }
+
+    const rotatingText = ["Upload.", "Optimize.", "Save."];
+    let currentIndex = 0;
+
+    function rotateText() {
+      const textElement = document.getElementById("rotating-text");
+      textElement.classList.add("fade-out");
+      setTimeout(() => {
+        textElement.textContent = rotatingText[currentIndex];
+        textElement.classList.remove("fade-out");
+        textElement.classList.add("fade-in");
+        currentIndex = (currentIndex + 1) % rotatingText.length;
+      }, 500);
+    }
+
+    setInterval(rotateText, 3000);
+    rotateText(); // Initialize the text immediately
   </script>
 
   <model-viewer
-    alt=""
+    alt="Can Model"
     class="orbit-cans"
     id="orbit-cans"
-    src="../static/asset/models/cans.glb"
+    src="{% static 'asset/models/cans.glb' %}"
     shadow-intensity="1"
     touch-action="pan-y"
   ></model-viewer>
   <model-viewer
-    alt=""
+    alt="Bag Model"
     class="orbit-bag"
     id="orbit-bag"
-    src="../static/asset/models/bag.glb"
+    src="{% static 'asset/models/bag.glb' %}"
     shadow-intensity="1"
     camera-controls
     touch-action="pan-y"
   ></model-viewer>
   <model-viewer
-    alt=""
+    alt="Can Model"
     class="orbit-can"
     id="orbit-can"
-    src="../static/asset/models/can.glb"
+    src="{% static 'asset/models/can.glb' %}"
     shadow-intensity="1"
     touch-action="pan-y"
   ></model-viewer>
   <model-viewer
-    alt=""
+    alt="Bottle Model"
     class="orbit-bottle"
     id="orbit-bottle"
-    src="../static/asset/models/bottle.glb"
+    src="{% static 'asset/models/bottle.glb' %}"
     shadow-intensity="1"
     camera-controls
     touch-action="pan-y"
   ></model-viewer>
-
 </div>
 
 {% endblock %}
