@@ -11,6 +11,7 @@
   background-size: cover;
 }
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,4 +68,8 @@
   margin-top: 2vh;
   font-size: 1.2rem;
   max-width: 120vh;
+}
+
+.orbit-cans {
+  position: absolute;
 }
