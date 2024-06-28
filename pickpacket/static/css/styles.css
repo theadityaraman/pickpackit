@@ -11,6 +11,7 @@
   background-size: cover;
 }
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,4 +68,25 @@
   margin-top: 2vh;
   font-size: 1.2rem;
   max-width: 120vh;
+}
+
+.orbit-cans {
+  position: absolute;
+  left: 20px;
+  bottom: 250px;
+}
+.orbit-can {
+  position: absolute;
+  right: 20px;
+  bottom: 250px;
+}
+.orbit-bag {
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+}
+.orbit-bottle {
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
 }

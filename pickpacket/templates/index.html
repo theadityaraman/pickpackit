@@ -11,11 +11,42 @@
   <button class="start-button" onClick="directToUploadForm()">
     Start <span>🚀</span>
   </button>
-  <script>
-    function directToUploadForm() {
-      window.location.href = "/upload";
-    }
-  </script>
+
+  <model-viewer
+    alt=""
+    class="orbit-cans"
+    id="orbit-cans"
+    src="../static/asset/models/cans.glb"
+    shadow-intensity="1"
+    touch-action="pan-y"
+  ></model-viewer>
+  <model-viewer
+    alt=""
+    class="orbit-bag"
+    id="orbit-bag"
+    src="../static/asset/models/bag.glb"
+    shadow-intensity="1"
+    camera-controls
+    touch-action="pan-y"
+  ></model-viewer>
+  <model-viewer
+    alt=""
+    class="orbit-can"
+    id="orbit-can"
+    src="../static/asset/models/can.glb"
+    shadow-intensity="1"
+    touch-action="pan-y"
+  ></model-viewer>
+  <model-viewer
+    alt=""
+    class="orbit-bottle"
+    id="orbit-bottle"
+    src="../static/asset/models/bottle.glb"
+    shadow-intensity="1"
+    camera-controls
+    touch-action="pan-y"
+  ></model-viewer>
+
 </div>
 
 {% endblock %}
