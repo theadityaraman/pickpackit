@@ -89,7 +89,7 @@ def file_upload(request):
 
         os.remove(file_path)  # Clean up the temporary file
 
-        return HttpResponse(f"Optimization Results: {optimization_results}")
+        return render(request, "upload.html", {"optimized_results": optimization_results})
 
     # Render the file upload form
     return render(request, "upload.html")
