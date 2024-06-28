@@ -72,4 +72,21 @@
 
 .orbit-cans {
   position: absolute;
+  left: 20px;
+  bottom: 250px;
+}
+.orbit-can {
+  position: absolute;
+  right: 20px;
+  bottom: 250px;
+}
+.orbit-bag {
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+}
+.orbit-bottle {
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
 }
