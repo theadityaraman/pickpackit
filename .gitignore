@@ -19,7 +19,6 @@ yarn-error.log
 npm-debug.log
 build/
 dist/
-*.js
 *.map
 yarn.lock
 package-lock.json
