@@ -5,10 +5,11 @@
     <meta charset="UTF-8" />
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% block extra_css %}{% endblock %}
   </head>
   <body>
     <!-- nav bar to do -->
-    {%block content%} {%endblock%}
+    {% block content %}{% endblock %}
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"

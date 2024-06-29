@@ -1,42 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %} <!-- Load the custom filter here -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/results.css' %}">
+{% endblock %}
+
 {% block content %}
 {% if not optimized_results %}
-<div class = "upload">
-
-    <h1 class="sid-text">Upload a 3D Model File (STL or OBJ)</h1>
-<form action="/upload" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input class="start-button" type="file" id="file" name="myfile" accept=".obj,.stl" required>
-    <br>
-    <input class = "start-button" type="submit" value="Submit">
-</form>
-
+<div class="upload">
+    <h1 class="heading-text">Upload a 3D Model File (STL or OBJ)</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class="file-input" type="file" id="file" name="myfile" accept=".obj,.stl" required>
+        <br>
+        <input class="submit-button" type="submit" value="Submit">
+    </form>
 </div>
 {% endif %}
 
 {% if optimized_results %}
-<div class = "result">
-    <div>
-    <h2 class="heading-text">Optimization Results</h2>
-    <p class="sid-text"><strong>Original Dimensions:</strong>
-        <ul>
-            <li class="sid-text">Length : {{ optimized_results.original_dimensions.length }}</li>
-            <li class="sid-text">Width: {{ optimized_results.original_dimensions.width }}</li>
-            <li class="sid-text">Height: {{ optimized_results.original_dimensions.height }}</li>
-        </ul>
-    </p>
-    <p class="sid-text"><strong>Original Volume:</strong> {{ optimized_results.original_volume }}</p>
-    <p class="sid-text"><strong>Optimized Radius:</strong> {{ optimized_results.optimized_radius }}</p>
-    <p class="sid-text"><strong>Optimized Height:</strong> {{ optimized_results.optimized_height }}</p>
-    <p class="sid-text"><strong>Original Surface Area:</strong> {{ optimized_results.original_surface_area }}</p>
-    <p class="sid-text"><strong>Optimized Surface Area:</strong> {{ optimized_results.optimized_surface_area }}</p>
-
-    {% if file_path %}
-    <a class="start-button" href="{% url 'download_file' file_path %}">Download Optimized File</a>
-    {% endif %}
-</div>
+<div class="result">
+    <div class="result-container">
+        <h2 class="main-heading-text">Optimization Results</h2>
+        <div class="results-sections">
+            <div class="results-box">
+                <h3 class="subheading-text">Original</h3>
+                <p class="result-text"><strong>Dimensions:</strong></p>
+                <ul class="result-list">
+                    <li class="result-item">Length: <span class="lighter-text">{{ optimized_results.original_dimensions.length|floatformat:2 }}</span></li>
+                    <li class="result-item">Width: <span class="lighter-text">{{ optimized_results.original_dimensions.width|floatformat:2 }}</span></li>
+                    <li class="result-item">Height: <span class="lighter-text">{{ optimized_results.original_dimensions.height|floatformat:2 }}</span></li>
+                </ul>
+                <p class="result-text"><strong>Volume:</strong> <span class="lighter-text">{{ optimized_results.original_volume|floatformat:2 }}</span></p>
+                <p class="result-text"><strong>Surface Area:</strong> <span class="lighter-text">{{ optimized_results.original_surface_area|floatformat:2 }}</span></p>
+            </div>
+            <div class="results-box">
+                <h3 class="subheading-text">Optimized</h3>
+                <p class="result-text"><strong>Radius:</strong> <span class="lighter-text">{{ optimized_results.optimized_radius|floatformat:2 }}</span></p>
+                <p class="result-text"><strong>Height:</strong> <span class="lighter-text">{{ optimized_results.optimized_height|floatformat:2 }}</span></p>
+                <p class="result-text"><strong>Surface Area:</strong> <span class="lighter-text">{{ optimized_results.optimized_surface_area|floatformat:2 }}</span></p>
+            </div>
+        </div>
+        <p class="summary-text">The new surface area is <span class="highlighted-text">{{ optimized_results.original_surface_area|percentage_decrease:optimized_results.optimized_surface_area }}% less</span> than the original.</p>
+        {% if file_path %}
+        <a class="download-button" href="{% url 'download_file' file_path %}">Download Optimized File 📥</a>
+        {% endif %}
+    </div>
 </div>
 {% endif %}
-
 {% endblock %}
