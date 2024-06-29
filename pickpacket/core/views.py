@@ -66,8 +66,8 @@ def file_upload(request):
             'original_volume': volume * conv**3,
             'optimized_radius': optimized_r * conv,
             'optimized_height': optimized_h * conv,
-            'original_surface_area': mesh.area * conv**2,
-            'optimized_surface_area': surface_area(result.x) * conv**2
+            'original_surface_area': surface_area(result.x) * conv**2,
+            'optimized_surface_area': mesh.area * conv**2
         }
 
         os.remove(file_path)
